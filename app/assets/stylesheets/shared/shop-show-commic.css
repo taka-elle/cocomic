@@ -1,0 +1,36 @@
+.shop-show-commics{
+  background-color: white;
+  height: auto;
+  width: 50vw;
+  margin: 20px auto;
+  border: 3px solid #724913;
+  border-radius: 10px;
+}
+.show-shop-box{
+  display: flex;
+  border-bottom: 3px solid #724913;
+  font-size: 30px;
+}
+.show-title-box{
+  width: 50%;
+  text-align: center;
+}
+.show-ticket-box{
+  width: 50%;
+  text-align: center;
+  border-left: 3px solid #724913;
+}
+.ticket-modal-open{
+  cursor: pointer;
+}
+.show-shop-image{
+  width: auto;
+  height: 200px;
+  padding: 10px;
+}
+
+@media screen and (max-width:812px) {
+  .shop-show-commics{
+    width: 90vw;
+  }
+}

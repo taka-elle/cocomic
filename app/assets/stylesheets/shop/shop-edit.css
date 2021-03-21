@@ -1,0 +1,42 @@
+.edit-form-wrapper{
+  width: 400px;
+  margin: 200px auto;
+  text-align: center;
+}
+.edit-title{
+  color:#724913;
+  font-size: 40px;
+  margin: 60px 0;
+}
+.edit-text{
+  width: 100%;
+  margin-top: 5px;
+  height: 150px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+}
+.edit-shop-image{
+  height: auto;
+  width: 200px;
+}
+.shop-image-form{
+  background-color: white;
+  color: #724913;
+}
+.shop-update-message{
+  color:#724913;
+  font-size: 60px;
+  border-bottom: 3px solid #724913;
+  margin-top: 130px;
+}
+
+@media screen and (max-width:812px) {
+  .edit-form-wrapper{
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+  }
+} 

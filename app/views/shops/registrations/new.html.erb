@@ -1,0 +1,57 @@
+<%= render "shared/second-header"%>
+<h2 class= "page-title">ーSHOPーSign up</h2>
+
+<%= form_with model: @shop, url: shop_registration_path,method: :post, local: true do |f| %>
+  <%= render "shops/shared/error_messages", resource: resource %>
+  <div class="form-wrapper">
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name",class:"input-default" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autocomplete: "email",class:"input-default" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password",class:"input-default" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"input-default" %>
+    </div>
+
+    <div class="shop-add-form">
+      <p class= "add-title">ーAddressー</p>
+      <div class="area-form-content">
+        <p>Area</p>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"select-box active-hash-default", id:"item-area"}) %>
+      </div>
+
+      <div class="field">
+        <%= f.label :city %><br />
+        <%= f.text_field :city, autofocus: true, autocomplete: "city",class:"input-default" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :add_line %><br />
+        <%= f.text_field :add_line, autofocus: true, autocomplete: "add_line",class:"input-default" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :build %><br />
+        <%= f.text_field :build, autofocus: true, autocomplete: "build",class:"input-default" %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "新規登録",class:"signup-submit" %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "shops/shared/links" %>

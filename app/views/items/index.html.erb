@@ -1,0 +1,60 @@
+<%= render "shared/user-main-header" %>
+
+<div class="search-content">
+  <%= flash[:ticket_get] %>
+  <p>読みたい本のタイトルを入力してください</p>
+  <div class="search-form-content">
+    <%= form_with url: items_path, method: :get, local: true do |f| %>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, {}, {class:"active-hash-default items-active-hash"}) %>
+        <%= f.text_field :keyword, class: "search-input" %>
+        <%= f.submit '調べる', class: "search-submit" %>
+    <%end%>
+  </div>
+  <%# 楽天ブックスAPI %>
+  <% if params[:keyword] %>
+  <p><%= @area.name %>内で調べます<p>
+    <% if params[:keyword] != ""%>
+      <% @books.each do |book| %>
+        <%= form_with url: search_shop_items_path, method: :get, local: true do |f| %>
+          <div class="search-commic-data">
+            <div class="search-commic-image">
+              <%= link_to (image_tag(book.medium_image_url)), book.item_url%>
+            </div>
+            <div class="search-commic-title">
+              <%= book.title %>
+            </div>
+            <%= f.text_field :isbn,value:book.isbn,hidden: true %>
+            <%= f.text_field :area_id,value:params[:area_id],hidden: true %>
+            <div class="search-commic-submit">
+              <%= f.submit '調べる',id:"search-commic-submit"%>
+            </div>
+          </div>
+        <%end%>
+      <%end%>
+    <% elsif params[:keyword] == "" %>
+      <p>タイトルを入力してください</p>
+    <%end%>
+  <%end%>
+  <%# ここまで %>
+</div>
+
+<%unless params[:keyword]%>
+  <div class="tickets-content">
+    <p class="ticket-list-p">チケット一覧</p>
+    <ul class="ticket-scroll">
+      <% @tickets.each do |ticket|%>
+        <li class="ticket" id= "ticket">
+          <div class="ticket-shop-name">
+            <p><%= ticket.shop_item.shop.name%></p>
+          </div>
+          <div class="ticket-index-info">
+            <p>日付：<%= ticket.get_day.strftime("%Y年 %m月 %d日")%></p>
+            <p>返す日：<%= (ticket.get_day + ticket.having_day - 1).strftime("%Y年 %m月 %d日")%></p>
+            <p>ISBN：<%= ticket.isbn%></p>
+            <%= link_to "表示する",edit_shop_item_ticket_path(shop_item_id: ticket.shop_item_id,id: ticket.id),class: "ticket-show-link" %>
+          </div>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+<%end %>

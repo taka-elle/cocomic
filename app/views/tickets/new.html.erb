@@ -1,0 +1,36 @@
+<%= render "shared/user-main-header" %>
+
+<div class="ticket-new-flash">
+<%= flash[:ticket_no_get]%>
+</div>
+<div class="ticket-wrap">
+<h2>レンタルチケット<h2>
+  <div class="ticket-shop-name">
+    <p>お店の名前:</p>
+    <%= @shop_item.shop.name %>
+  </div>
+  <%= form_with model:@ticket,url:shop_item_tickets_path,local: true do |f| %>
+    <p class="ticket-form-p">取りにくる日</p>
+    <div class='get-day-wrap'>
+      <%= raw sprintf(
+                f.date_select(
+                  :get_day,
+                  class:'get-day-select',
+                  id:"get-day",
+                  use_month_numbers: true,
+                  prompt:'--',
+                  start_year: Time.now.year,
+                  end_year: (Time.now.year + 1),
+                  date_separator: '%s'),
+                "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+    </div>
+    <p class="ticket-form-p">期間</p>
+    <div class="having-day-wrap"> 
+      <%= f.text_field :isbn,value: @shop_item.isbn,hidden: true %>
+      <%= f.text_field :having_day, class:"having-day-form", id:"having-day", placeholder:"例）3" %>
+      <span class="day-niti">日</span>
+    </div>
+    <%= f.submit "予約する" ,class:"load-modal-close reservation-btn"%>
+    <%= link_to "戻る",shop_path(@shop_item.shop.id),class:"load-modal-close" %>
+  <%end%>
+</div>

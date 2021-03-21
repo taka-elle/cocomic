@@ -1,0 +1,25 @@
+<%= render "shared/second-header"%>
+<h2 class = "page-title">ーSHOPーLog in</h2>
+
+<%= form_with model: @shop, url: shop_session_path,method: :post, local: true do |f| %>
+
+  <div class = "form-wrapper">
+    <p>こちらはユーザーのログインページではありません</p>
+    <%= flash[:alert] %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-default" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class:"input-default" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "ログイン",class:"signup-submit" %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "shops/shared/links" %>

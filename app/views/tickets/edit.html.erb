@@ -1,0 +1,28 @@
+<% if user_signed_in?%>
+  <%= render "shared/user-main-header" %>
+<% elsif shop_signed_in? %>
+  <%= render "shared/shop-header" %>
+<% end %>
+
+
+  <div class="ticket-wrap">
+    <h2>レンタルチケット<h2>
+    <div class="ticket-shop-name">
+      <p>お店の名前:</p>
+      <%= @ticket.shop_item.shop.name %>
+    </div>
+    <p class="ticket-form-p">取りにくる日</p>
+    <div class='get-day-wrap'>
+      <p><%= @ticket.get_day.strftime("%Y年 %m月 %d日")%></p>
+    </div>
+    <p class="ticket-form-p">期間</p>
+    <div class="having-day-wrap"> 
+      <%= @ticket.having_day%>
+      <span class="day-niti">日</span>
+    </div>
+    <p class="ticket-form-p">返す日</p>
+    <div class='get-day-wrap'>
+      <p><%= @return_day.strftime("%Y年 %m月 %d日")%></p>
+    </div>
+    <%= link_to "削除",shop_item_ticket_path(shop_item_id: @ticket.shop_item_id,id: @ticket.id), class:"load-modal-close", method: :delete%>
+  </div>

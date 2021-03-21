@@ -1,0 +1,300 @@
+.list-content {
+  background-color: lightcoral;
+  height: 40%;
+  width: 15%;
+  opacity: 0.7;
+  position: absolute;
+  position: fixed;
+}
+.page-list{
+  list-style: square inside;
+}
+
+.load-modal-wrapper{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+}
+.load-modal{
+  position: absolute;
+  top: 20%;
+  left: 34%;
+  background-color: #e6ecf0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40vw;
+  height: 50vh;
+  text-align: center;
+  border: 5px solid #724913;
+}
+.load-modal p{
+  height: 80%;
+  line-height: 30px;
+}
+.load-modal-close{
+  display: inline-block;
+  background-color: #724913;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  color: #f3b85b;
+  cursor: pointer;
+}
+
+.list-content li{
+  padding: 10px 20px;
+  border-bottom:1px solid black;
+}
+.list-content li:hover{
+  color: #f3b85b;
+}
+
+.top-image-content {
+  height: 1000px;
+}
+.top-image {
+  height:auto;
+  width: 100%;
+}
+.top-image-content h1{
+  color: white;
+  font-size: 100px;
+  font-family: "クレー";
+  position: absolute;
+  top: 100px;
+  left: 700px;
+  opacity: 0.8;
+}
+.top-logo-signup{
+  height: 25vh;
+  width: 10vw;
+  position: absolute;
+  top: 40px;
+  left: 300px;
+  text-align: center;
+}
+.logo-img{
+  height: auto;
+  width: 200px;
+}
+.top-signup-box{
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+}
+.signup-btn{
+  color:#f3b85b;
+  background-color: white;
+  padding: 12px 25px;
+  border: 2px solid #f3b85b;
+  border-radius: 10px;
+  margin: 20px 0px 0px 10px;
+  opacity: 0.8;
+  display: inline-block;
+}
+.signup-btn:hover{
+  opacity: 1;
+}
+.top-signup-box p{
+  font-size: 2px;
+}
+
+.top-text-content {
+  height: 300px;
+  width: 60vw;
+  margin: 20px auto;
+  text-align: center;
+}
+.h2text{
+  color:#724913;
+  font-size: 60px;
+  border-bottom: 3px solid #724913;
+}
+.top-text-content p{
+  color:#724913;
+  font-size:20px;
+  padding-top: 20px;
+  line-height: 40px;
+}
+
+.merit-content {
+  height: 600px;
+  width: 60vw;
+  margin: 20px auto;
+  text-align: center;
+}
+.merit-list{
+  display: flex;
+  justify-content: space-around;
+}
+.merit{
+  height: 500px;
+  width: calc((100% - 100px)/3);
+  cursor: pointer;
+}
+.merit h3{
+  font-size: 50px;
+  margin: 20px;
+  color:#724913;
+  border-bottom: 1px solid #724913;
+}
+.merit p{
+  color:#724913;
+  line-height: 30px;
+  margin: 30px 0 ;
+  display: none;
+}
+
+.signup-content{
+  height: 150px;
+  margin: 20px auto;
+  text-align: center;
+  color:#724913;
+}
+.signup-content p{
+  font-size: 40px;
+}
+.signup-link{
+  font-size: 30px;
+  background-color: white;
+  padding: 12px 25px;
+  border: 2px solid  #724913;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: inline-block;
+  box-shadow: 5px 5px #724913;
+}
+.signup-link:active{
+  box-shadow: none;
+  position: relative;
+  top: 5px;
+  left: 5px;
+}
+
+.top-footer {
+  background-color: lightgrey;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  color: rgb(86, 94, 100);
+}
+.footer-right li{
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+@media screen and (min-width:813px) and (max-width:1366px) {
+  .list-content{
+    display: none;
+  }
+  .top-image-content {
+    height: 30rem;
+  }
+  .top-image-content h1{
+    font-size: 2.5rem;
+    top: 50px;
+    left: 400px;
+  }
+  .top-logo-signup{
+    width: 25%;
+    top: 20px;
+    left: 50px;
+  }
+  .logo-img{
+    width: 150px;
+  }
+  .signup-box{
+    font-size: 20px;
+  }
+  .signup-btn{
+    padding: 6px 10px;
+  }
+  .top-signup-box p{
+    display: none;
+  }
+
+  .h2text{
+    font-size: 50px;
+  }
+  .top-text-content p{
+    font-size:20px;
+  }
+  .merit h3{
+    font-size: 30px;
+    margin: 40px;
+  }
+  .merit p{
+    line-height: 20px;
+    margin: 30px 0 ;
+  }
+}
+
+@media screen and (max-width:812px) { 
+  .list-content{
+    display: none;
+  }
+  .top-image-content {
+    height: 11rem;
+  }
+  .top-image-content h1{
+    font-size: 1.5rem;
+    top: 20px;
+    left: 100px;
+  }
+  .top-logo-signup{
+    width: 25%;
+    top: 5px;
+    left: 10px;
+  }
+  .logo-img{
+    width: 70px;
+  }
+  .top-signup-box{
+    font-size: 10px;
+  }
+  .signup-btn{
+    padding: 5px 7px;
+    margin: 5px;
+  }
+  .top-signup-box p{
+    display: none;
+  }
+
+  .h2text{
+    font-size: 20px;
+    border-bottom: 1px solid #724913;
+  }
+  .top-text-content{
+    height: 200px;
+  }
+  .top-text-content p{
+    font-size:10px;
+    line-height: 20px;
+  }
+  .merit-list{
+    display: block;
+    text-align: center;
+  }
+  .merit{
+    width: 100%;
+    height:auto;
+  }
+  .merit h3{
+    font-size: 30px;
+  }
+  .merit p{
+    line-height: 20px;
+    margin: 30px 0 ;
+  }
+  .signup-content p{
+    font-size: 1.5rem;
+  }
+}

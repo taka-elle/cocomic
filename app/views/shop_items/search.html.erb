@@ -1,0 +1,34 @@
+<%= render "shared/user-main-header" %>
+
+<%= flash[:no_search] %>
+  <% @search_shops.each do |shop|%>
+    <div class="search-shop-container">
+      <%= link_to shop_path(shop),class:"search-shop-container-test" do%>
+        <div class="search-shop-box">
+          <div class="search-shop-name each-contents">
+            <p class="search-shop-contents">名前：</p>
+            <%= shop.name %>
+          </div>
+
+          <div class="search-shop-add each-contents">
+            <p class="search-shop-contents">住所：</p>
+            <%= shop.city%>
+            <%= shop.add_line%>
+            <%= shop.build%>
+          </div>
+
+          <div class="each-contents">
+            <%= image_tag shop.image, class: 'search-shop-image' if shop.image.attached?%>
+            <% if shop.image.blank? %>
+              <%= image_tag "cocomic-shop-demo.jpg", class: 'search-shop-image' %>
+            <%end%>
+
+            <div class="search-shop-text">
+              <p class="search-shop-contents">説明：</p>
+              <%= shop.text%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>

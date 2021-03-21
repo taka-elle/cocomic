@@ -1,0 +1,39 @@
+<%= render "shared/shop-header" %>
+
+<div class="shop-item-content">
+  <div class="shop-title-form">
+    <%= flash[:shop_item] %>
+    <p>置いてある漫画を登録してください</p>
+    <%= form_with url:new_shop_item_path, method: :get, local: true do |f| %>
+      <%= f.text_field :keyword, class: "shop-title-input" %>
+      <%= f.submit 'タイトルで検索', class: "shop-title-submit",id: "search-title-submit" %>
+    <%end%>
+  </div>
+
+  <%# 楽天ブックスapi %>
+  <% if params[:keyword]%>
+    <% @books.each do |book| %>
+      <%= form_with model:@shop_item, local: true do |f| %>
+        <div class="search-commic-data">
+          <div class="search-commic-image">
+            <%= link_to (image_tag(book.medium_image_url)), book.item_url%>
+          </div>
+          <div class="search-commic-title">
+            <%= book.title %>
+          </div>
+          <%= f.text_field :isbn,value:book.isbn,hidden: true %>
+          <div class="search-commic-submit">
+            <%= f.submit '登録する',id: "search-commic-input"%>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
+  <% end %>
+  <%# ここまで %>
+
+  <div class="shop-show-commics">
+    <% @shop_items.each do |item|%>
+      <%= render partial: "shared/show-items", locals: {item: item} %>
+    <% end %>
+  </div>
+</div>

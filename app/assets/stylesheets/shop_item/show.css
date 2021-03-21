@@ -1,0 +1,63 @@
+#map_container {
+  clear: both;
+  width: 50%;
+  border: 3px solid #724913;
+  margin: 200px auto 100px;
+  border-radius: 10px;
+  background-color: white;
+}
+#map_info{
+  text-align: center;
+}
+#venue{
+  color: #724913;
+  font-size: 30px;
+  border-bottom: 3px solid #724913;
+  font-weight: bold;
+}
+#address{
+  border-bottom: 3px solid #724913;
+}
+#map_canvas {   /* 高さ（と幅）を指定しないと地図は表示されない */
+  width: 100%;
+  height: 500px;
+}
+#url, #zoom {
+  display: none;
+}
+#map_content {
+  width: 250px;
+  height: 70px;
+}
+
+.shop-show-info{
+  background-color: white;
+  height: auto;
+  width: 50vw;
+  margin: auto;
+  border: 3px solid #724913;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width:812px) {
+  #map_container {
+    clear: both;
+    width: 90%;
+    margin: 100px auto 100px;
+  }
+
+  .shop-show-info{
+    height: auto;
+    width: 80vw;
+    text-align: center;
+    display: block;
+  }
+
+  .shop-show-text{
+    text-align: center;
+    width: 100%;
+  }
+
+}

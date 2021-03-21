@@ -1,0 +1,94 @@
+.shop-item-content{
+  text-align: center;
+}
+.shop-title-form{
+  width: 40vw;
+  margin: 200px auto;
+  font-weight: bold;
+  color:#724913;
+}
+.shop-title-form p{
+  font-size:20px;
+  padding-bottom: 20px;
+}
+.shop-title-input{
+  width: 100%;
+  border: 3px solid #724913;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  resize: none;
+}
+.shop-num-input{
+  width: 20%;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid #724913;
+}
+.shop-title-submit{
+  display: inline-block;
+  border: 3px solid #724913;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.shop-title-submit:hover{
+  background-color: white;
+}
+
+.search-commic-data{
+  background-color: white;
+  border: 3px solid #724913;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: auto;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-commic-image{
+  width: 20%;
+  height: auto;
+}
+.search-commic-submit{
+  color: white;
+  background-color: #724913;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin: 10px;
+}
+
+
+@media screen and (max-width:1024px) {
+  .search-commic-data{
+    width: 60vw;
+  }
+}
+@media screen and (max-width:812px) {
+  .shop-title-form{
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  .search-commic-data{
+    width: 90vw;
+    padding: 10px 10px;
+  }
+  .search-commic-image{
+    width: 30%;
+    height: auto;
+  }
+  .search-commic-title{
+    font-size: 13px;
+    margin-left: 5px;
+  }
+  .search-commic-submit{
+    padding: 10px 15px;
+    font-size: 12px;
+    margin: 10px 0 10px 10px;
+  }
+}

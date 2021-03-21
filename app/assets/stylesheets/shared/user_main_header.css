@@ -1,0 +1,46 @@
+.header-content{
+  background-color: lightcoral;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10vw;
+}
+.header-logo{
+  height: auto;
+  width: 7vw;
+}
+.header-right{
+  display: flex;
+  align-items: center;
+  color: #724913;
+  font-weight: bold;
+}
+.login-name{
+  font-size: 20px;
+  padding: 0 10px;
+}
+.name-lists{
+  width: 200px;
+  position: absolute;
+  right: 50px;
+  top: 90px;
+}
+.pull-down-list{
+  background-color: lightcoral;
+  opacity: 0.7;
+  padding: 15px 35px 15px 15px;
+  border: 1px solid #724913;
+}
+.pull-down-list:hover{
+  opacity: 1;
+}
+.hidden{
+  display: none;
+}
+
+@media screen and (max-width:812px) {
+  .header-logo{
+    width: 20vw;
+  }
+}

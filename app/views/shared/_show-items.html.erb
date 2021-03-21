@@ -1,0 +1,16 @@
+<div class="show-shop-box">
+  <div class= "show-title-box">
+    <%= item[:title] %>
+  </div>
+  <div class="show-ticket-box">
+    <% if user_signed_in? %>
+      <%= link_to "予約する",new_shop_item_ticket_path(item[:id]),id: "ticket-get-btn" %>
+    <% else %>
+      <% if current_page?(new_shop_item_path)%>
+        <%= link_to "登録を取り消す",shop_item_path(item[:id]),method: :delete %>
+      <% elsif  current_page?(shop_path(current_shop.id)) && !item[:ticket].blank?%>
+        <%= link_to item[:ticket][:get_day],edit_shop_item_ticket_path(shop_item_id: item[:id],id: item[:ticket][:ticket_id]),class: "shop-ticket" %>
+      <%end%>
+    <%end%>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+<div class="list-content">
+  <ul class="page-list">
+    <li>
+      <a href="#top-page">cocomic!</a>
+    </li>
+    <% if shop_signed_in? %>
+      <li>
+        <%= link_to 'ログアウト',destroy_shop_session_path, method: :delete, class: "sign-up" %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to '新規登録', new_user_registration_path, class: "sign-up" %>
+      </li>
+      <li>
+        <%= link_to 'ログイン', new_user_session_path, class: "login" %>
+      </li>
+    <% end %>
+    <li>
+      <a href="#text-page">ココミックとは？</a>
+    </li>
+    <li>
+      <a href="#merit-page">ココミックでできること</a>
+    </li>
+    <li>
+      <a href="#">よくあるご質問</a>
+    </li>
+    <li>
+      <a href="#">お問い合わせ</a>
+    </li>
+    <li>
+      <%= link_to 'ショップ登録はこちら', new_shop_session_path, class: "sign-up shop-sign-up" %>
+    </li>
+  </ul>
+</div>
+
+<div class="load-modal-wrapper">
+  <div class="load-modal">
+    <p>このサイトはポートフォリオのためのオリジナルアプリケーションとなっています。<br>実際に会員登録をしてお楽しみください。<br><br>
+    このアプリケーションには実在していないお店や住所が出てくると思いますが<br>ご了承ください。<br>また、概要や規約、お問い合わせフォームのページなど未実装なリンクも多々ありますがご了承ください。<br>
+    <br>使用言語　ruby, rails, HTML, CSS, Javascript, jQuery</p>
+    <span class="load-modal-close">とじる</span>
+  </div>
+</div>
+
+<a id="top-page"></a>
+<div class="top-image-content" >
+  <%= image_tag "top-image.jpg", class:"top-image"%>
+  <h1>今日はどこで読もう</h1>
+  <div class="top-logo-signup">
+    <%= link_to image_tag("top-logo.png", class:"logo-img"), "#" %>
+    <div class="top-signup-box">
+      <% if shop_signed_in? %>
+        <%= link_to 'ログアウト', destroy_shop_session_path, method: :delete, class: "login signup-btn" %>
+        <p>ショップをログアウトしてください</p>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: "login signup-btn" %>
+        <p>※アカウントをお持ちの方</p>
+        <%= link_to '新規登録', new_user_registration_path, class: "sign-up signup-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="top-text-content">
+  <a id="text-page"></a>
+  <h2 class="h2text">ココミックとは？</h2>
+  <p>「今この漫画が読みたい！」と思うとき、ありますよね？<br>その漫画、実は近くで読めるかもしれません！<br>
+      ココミックではあなたの読みたい漫画の読めるお店を探すことができます！</p>
+</div>
+
+<div class="merit-content">
+  <a id="merit-page"></a>
+  <h2 class="h2text">ココミックでできること</h2>
+  <div class="merit-list">
+    <div class="merit">
+      <h3>Search</h3>
+      <p class="accordion">近くのお店にどのような本があるのか、<br>
+      また、読みたい本のタイトルを検索することで<br>その本の読めるお店を探すことができます。</p>
+    </div>
+    <div class="merit">
+      <h3>Know</h3>
+      <p class="accordion">近くのお店の情報を知ることができます。<br>また、お店のおすすめやサービスなども知ることができ、それらを読書とともに楽しむことができます。</p>
+    </div>
+    <div class="merit">
+      <h3>Rental</h3>
+      <p class="accordion">事前に予約をすることでその本を借りることができるかもしれません。</p>
+    </div>
+  </div>
+</div>
+
+<div class="signup-content">
+  <p>早速cocomicをはじめてみましょう!</p>
+  <%= link_to 'はじめる', new_user_registration_path, class: "signup-link" %>
+</div>
+
+<footer class="top-footer">
+  <div class="footer-left">
+    <p>cocomic</p>
+  </div>
+  <div class="footer-right">
+    <ul>
+      <li>
+        <a href="#">概要</a>
+      </li>
+      <li>
+        <a href="#">利用規約</a>
+      </li>
+      <li>
+        <a href="#">お問い合わせ</a>
+      </li>
+    </ul>
+  </div>
+</footer>

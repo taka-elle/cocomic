@@ -1,0 +1,94 @@
+<% if shop_signed_in? %>  
+  <%= render "shared/shop-header" %>
+  </div>
+<% elsif user_signed_in? %>
+  <%= render "shared/user-main-header" %>
+<%end%>
+
+<% if false %>google map API (コメントアウト)<% end %>
+<div id="map_container">
+  <div id="map_info">
+    <p id="venue"><%= @shop.name %></p>
+    <p id="address"><%= @shop.area.name + @shop.city + @shop.add_line + @shop.build %></p>
+    <p id="zoom">16</p>
+  </div>
+  <div id="map_canvas"></div>
+</div>
+
+<script>
+  function initMap() {
+    jQuery(function($){
+      var map, map_center;
+      var zoom = $("#zoom").text() ?  parseInt($("#zoom").text()): 16;
+      var title = $('#venue').text();
+
+      var opts = {
+        zoom: zoom,
+        mapTypeId: "roadmap" 
+      };
+
+      map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+  
+      var geocoder = new google.maps.Geocoder();
+  
+      var address = $('#address').text();
+      var my_reg = /〒\s?\d{3}(-|ー)\d{4}/;
+      address = address.replace(my_reg, '');
+  
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status === 'OK' && results[0]) {
+          map_center = results[0].geometry.location;
+          map.setCenter(map_center);
+          var marker = new google.maps.Marker({
+            map: map, 
+            position: map_center,  
+            animation: google.maps.Animation.DROP,  
+            title: title
+          });
+  
+          var url = $("#url a").attr('href');
+          var content;
+          if (url) {
+            content = '<div id="map_content"><p><a href="' + url + '" target="_blank"> ' + title + '</a><br />' + address + '</p></div>';
+          }else {
+            content = '<div id="map_content"><p>' + title + '<br />' + address + '</p></div>';
+          }
+  
+          var infowindow = new google.maps.InfoWindow({
+            content: content,
+          });
+  
+          google.maps.event.addListener(marker, 'click', function() {
+
+            infowindow.open(map, marker);
+          });
+        } else {
+          alert("住所から位置の取得ができませんでした。: " + status);
+        }
+      });    
+    }); 
+  }
+</script> 
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GMAP_KEY"] %>&callback=initMap" async defer></script>
+<% if false %>google map API ここまで(コメントアウト)<% end %>
+
+<div class="shop-show-container">
+  <div class="shop-show-info">
+    <div class="shop-show-image">
+      <%= image_tag @shop.image, class: 'show-shop-image' if @shop.image.attached?%>
+        <% if @shop.image.blank? %>
+          <%= image_tag "cocomic-shop-demo.jpg", class: 'show-shop-image' %>
+        <%end%>
+    </div>
+    <div class="shop-show-text">
+      <%= @shop.text %>
+    </div>
+  </div>
+
+  <div class="shop-show-commics">
+    <% @shop_items.each do |item|%>
+      <%= render partial: "shared/show-items", locals: {item: item} %>
+    <% end %>
+  </div>
+
+</div>

@@ -1,0 +1,83 @@
+.ticket-new-flash{
+  text-align: center;
+}
+.ticket-wrap{
+  background-color: #e6ecf0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 40vw;
+  margin: 15vh auto;
+  height: auto;
+  text-align: center;
+  border: 5px solid #724913;
+}
+.ticket-wrap h2{
+  font-size: 30px;
+  color: #724913;
+  font-weight: bold;
+}
+.ticket-shop-name{
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  padding: 20px;
+}
+
+.get-day-wrap {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.get-day-wrap select {
+  width: 75px;
+  margin-top: 5px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.get-day-wrap p {
+  line-height: 60px;
+  padding: 0 5px;
+}
+.ticket-form-p{
+  font-size: 20px;
+  color: #724913;
+  font-weight: bold;
+  margin: 10px;
+}
+.having-day-form{
+  width: 75px;
+  margin-top: 5px;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+}
+
+@media screen and (max-width:1366px) {
+  .ticket-wrap{
+    width: 70vw;
+  }
+}
+@media screen and (max-width:812px) {
+  .ticket-wrap{
+    width: 100%;
+  }
+  .ticket-shop-name{
+    font-size: 20px;
+  }
+  .get-day-wrap {
+    width: 80%;
+    font-size: 20px;
+  }
+  .get-day-wrap select {
+    width: 20%;
+  }
+}

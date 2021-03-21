@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        user: ユーザー
+        name: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+      shop:
+        shop: ショップ
+        name: ショップ名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認用)
+        area: 都道府県
+        city: 市区町村
+        add_line: 番地
+        build: 建物
+        current_password: 現在のパスワード
+        text: お店の説明文
+      shop_item:
+        isbn: 本
+      ticket:
+        get_day: 取りに行く日
+        having_day: 借りる期間
+        isbn: 本
