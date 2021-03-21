@@ -16,7 +16,7 @@ RSpec.describe ShopItem, type: :model do
       it 'isbnがなければ登録できない' do
         @shop_item.isbn = ""
         @shop_item.valid?
-        expect(@shop_item.errors.full_messages).to include "本が入力されていません。"
+        expect(@shop_item.errors.full_messages).to include "本を入力してください"
       end
       it 'isbnが13文字以外であれば登録できない' do
         @shop_item.isbn = 1 * 12
@@ -34,7 +34,7 @@ RSpec.describe ShopItem, type: :model do
         another_shop_item.shop = @shop_item.shop
         another_shop_item.isbn = @shop_item.isbn
         another_shop_item.valid?
-        expect(another_shop_item.errors.full_messages).to include "本は既に使用されています。"
+        expect(another_shop_item.errors.full_messages).to include "本はすでに存在します"
       end
     end
   end

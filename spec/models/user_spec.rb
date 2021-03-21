@@ -30,56 +30,56 @@ RSpec.describe User, type: :model do
       it 'nameが空では登録されない' do
         @user.name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "ニックネームが入力されていません。"
+        expect(@user.errors.full_messages).to include "ニックネームを入力してください"
       end
       it 'emailが空では登録されない' do
         @user.email = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "メールアドレスが入力されていません。"
+        expect(@user.errors.full_messages).to include "メールアドレスを入力してください"
       end
       it '既に登録されているemailでは登録されない' do
         @user.save
         another_user = FactoryBot.build(:user, email: @user.email)
         another_user.valid?
-        expect(another_user.errors.full_messages).to include "メールアドレスは既に使用されています。"
+        expect(another_user.errors.full_messages).to include "メールアドレスはすでに存在します"
       end
       it '＠を含んでいないemailは登録されない' do
         @user.email = 'testcom'
         @user.valid?
-        expect(@user.errors.full_messages).to include "メールアドレスは有効でありません。"
+        expect(@user.errors.full_messages).to include "メールアドレスは不正な値です"
       end
       it 'passwordが空では登録されない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワードが入力されていません。"
+        expect(@user.errors.full_messages).to include "パスワードを入力してください"
       end
       it 'passwordが存在してもpassword_confirmationが空では登録されない' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワード(確認用)が内容とあっていません。"
+        expect(@user.errors.full_messages).to include "パスワード(確認用)とパスワードの入力が一致しません"
       end
       it 'passwordは５文字以下では登録されない' do
         @user.password = 'a1234'
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワードは6文字以上に設定して下さい。"
+        expect(@user.errors.full_messages).to include "パスワードは6文字以上で入力してください"
       end
       it 'passwordとpassword_confirmationが異なる場合は登録されない' do
         @user.password = 'a00000'
         @user.password_confirmation = 'a11111'
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワード(確認用)が内容とあっていません。"
+        expect(@user.errors.full_messages).to include "パスワード(確認用)とパスワードの入力が一致しません"
       end
       it 'passwordとpassword_confirmationが半角数字だけでは登録されない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワードは有効でありません。"
+        expect(@user.errors.full_messages).to include "パスワードは不正な値です"
       end
       it 'passwordとpassword_confirmationが半角英字だけでは登録されない' do
         @user.password = 'abcdef'
         @user.password_confirmation = 'abcdef'
         @user.valid?
-        expect(@user.errors.full_messages).to include "パスワードは有効でありません。"
+        expect(@user.errors.full_messages).to include "パスワードは不正な値です"
       end
     end
   end

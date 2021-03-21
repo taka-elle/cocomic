@@ -16,12 +16,12 @@ RSpec.describe Ticket, type: :model do
       it 'get_dayがなければ登録できない' do
         @ticket.get_day = ""
         @ticket.valid?
-        expect(@ticket.errors.full_messages).to include "取りに行く日が入力されていません。"
+        expect(@ticket.errors.full_messages).to include "取りに行く日を入力してください"
       end
       it 'having_dayがなければ登録できない' do
         @ticket.having_day = ""
         @ticket.valid?
-        expect(@ticket.errors.full_messages).to include "借りる期間が入力されていません。"
+        expect(@ticket.errors.full_messages).to include "借りる期間を入力してください"
       end
       it 'having_dayがローマ字では登録できない' do
         @ticket.having_day = "a"
@@ -36,7 +36,7 @@ RSpec.describe Ticket, type: :model do
       it 'isbnがなければ登録できない' do
         @ticket.isbn = ""
         @ticket.valid?
-        expect(@ticket.errors.full_messages).to include "本が入力されていません。"
+        expect(@ticket.errors.full_messages).to include "本を入力してください"
       end
       it 'isbnが13文字でなければ登録できない' do
         @ticket.isbn = 1 * 12
@@ -59,7 +59,7 @@ RSpec.describe Ticket, type: :model do
         another_ticket.isbn = @ticket.isbn
         another_ticket.shop_item = @ticket.shop_item
         another_ticket.valid?
-        expect(another_ticket.errors.full_messages).to include "本は既に使用されています。"
+        expect(another_ticket.errors.full_messages).to include "本はすでに存在します"
       end
     end
   end
