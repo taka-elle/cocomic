@@ -9,15 +9,15 @@ http://18.180.247.184/
 
 
 # BASIC認証
-User: taka
+User: taka <br>
 PW  : 0119
 
 # テスト用アカウント
 ## ショップ
-Email:    test@com
+Email:    test@com<br>
 password: test0000
 ## ユーザー
-Email:    test@com
+Email:    test@com<br>
 password: test0000
 
 # 利用方法
@@ -48,18 +48,28 @@ password: test0000
 ### コミック登録機能
 ユーザーが調べたお店にどのような本があるかを知ることができるようにショップ側で本を登録する機能。
 楽天ブックスAPIを使っていることで、タイトルで本を検索することができます。そして本についているisbnという番号を登録することでその登録される本に一意性を持たせています。
+![comic登録](https://user-images.githubusercontent.com/78079392/111961425-6391ec80-8b34-11eb-88b2-8ca30dec43ee.gif)
+![comic登録２](https://user-images.githubusercontent.com/78079392/111963312-b4a2e000-8b36-11eb-865f-0301d469f90a.gif)
 ### 地図表示機能
 ユーザーがお店の詳細ページを訪れた際、住所がわかりやすいように地図を表示しています。
 GoogleMapAPIを使い、あらかじめ登録されていたショップの住所をもとに、その周辺の地図を表示しています。
+![openmap](https://user-images.githubusercontent.com/78079392/111963359-c3899280-8b36-11eb-8767-14c6d44462cf.gif)
+
 
 ## ユーザー側
 ### 本の検索機能
 まず読みたい本をショップ側同様楽天ブックスAPIを使い、検索します。そこで得た情報をもっているショップを一覧で検索結果ページに表示します。
 また、地域を選択することで地域を限定することができます。
+![u-comic](https://user-images.githubusercontent.com/78079392/111963409-d43a0880-8b36-11eb-8e90-32c8ec59b038.gif)
+![u-comic2](https://user-images.githubusercontent.com/78079392/111963439-def49d80-8b36-11eb-82ca-007e51d06003.gif)
 ### レンタルチケット機能
 ショップへの利用目的を増やすため、レンタルチケット機能を実装しました。
 ショップの詳細ページに登録されている本からレンタルチケットを発行することでその本を借りることができると言う機能です。
 チケットは「お店に取りに行く日」「借りておく期間」を入力することで発行することができます。
+![ticket1](https://user-images.githubusercontent.com/78079392/111963488-ef0c7d00-8b36-11eb-89cf-e16c7c625b17.gif)
+![ticket2](https://user-images.githubusercontent.com/78079392/111963552-ffbcf300-8b36-11eb-8116-abb4e021e886.gif)
+
+
 
 # 実装予定の機能
 ## ショップ側
@@ -124,3 +134,19 @@ GoogleMapAPIを使い、あらかじめ登録されていたショップの住�
 ### Association
 - belongs_to :shop_item
 - belongs_to :user
+
+# ローカル環境
+### バージョン
+ruby 2.6.5<br>
+Rails 6.0.3.5<br>
+Homebrew 3.0.1<br>
+node 14.15.4<br>
+yarn 1.22.10<br>
+### git clone
+
+```ターミナル.
+% git clone https://github.com/taka-elle/cocomic.git
+% cd cocomic
+% bundle install
+% yarn install
+```
