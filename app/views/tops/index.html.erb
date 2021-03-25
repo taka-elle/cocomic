@@ -33,11 +33,28 @@
   </ul>
 </div>
 
+<div class="top-modal-menu">
+  <%= image_tag "top-menu-icon.png", class:"top-menu-icon" %>
+  <div class="top-modal-menu-list">
+    <ul class="modal-menu">
+      <li>
+        <a href="#">よくあるご質問</a>
+      </li>
+      <li>
+        <a href="#">お問い合わせ</a>
+      </li>
+      <li>
+        <%= link_to 'ショップ登録はこちら', new_shop_session_path, class: "sign-up shop-sign-up" %>
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="load-modal-wrapper">
   <div class="load-modal">
-    <p>このサイトはポートフォリオのためのオリジナルアプリケーションとなっています。<br>実際に会員登録をしてお楽しみください。<br><br>
-    このアプリケーションには実在していないお店や住所が出てくると思いますが<br>ご了承ください。<br>また、概要や規約、お問い合わせフォームのページなど未実装なリンクも多々ありますがご了承ください。<br>
-    <br>使用言語　ruby, rails, HTML, CSS, Javascript, jQuery</p>
+    <p>テストユーザー：<br>メールアドレス：test@com<br>パスワード：test0000<br>
+    テストショップ：<br>メールアドレス：test@com<br>パスワード：test0000<br>
+    このアプリケーションには実在していないお店や住所が出てきます。<br>概要や規約、お問い合わせフォームのページなど未実装なリンクも多々あります。</p>
     <span class="load-modal-close">とじる</span>
   </div>
 </div>
