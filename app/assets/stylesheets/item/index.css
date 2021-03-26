@@ -52,7 +52,6 @@
   width: 30%;
   height: 300px;
   margin: 20px;
-  font-size: 48px;
   background:  #724913;
 }
 .ticket-shop-name{
@@ -70,17 +69,34 @@
 .ticket p{
   color: #724913;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 1.5vw;
 }
 .ticket-show-link{
+  display: inline-block;
   background-color: #724913;
   color: #f3b85b;
   font-size: 30px;
   border-radius: 10px;
   padding: 10px;
+  margin: 30px;
 }
 
-@media screen and (max-width:812px) { 
+@media screen and (max-width:1024px) { 
+  .tickets-content{
+    margin-top: 100px;
+  }
+  .ticket-list-p{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .ticket{
+    width: 40%;
+  }
+  .ticket p{
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width:411px) { 
   .search-content{
     height: 130px;
   }
