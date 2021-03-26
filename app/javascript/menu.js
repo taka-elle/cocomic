@@ -1,23 +1,12 @@
-function pullDown(){
-
-  const pullDownButton = document.getElementById("user-name")
-  const pullDownParents = document.getElementById("pull-down")
-
-  pullDownButton.addEventListener('mouseover', function(){
-    this.setAttribute("style", "color:#FFBEDA;")
-  });
-
-  pullDownButton.addEventListener('mouseout', function(){
-    this.removeAttribute("style", "color:#FFBEDA;")
-  });
-
-  pullDownButton.addEventListener('click', function() {
-    if (pullDownParents.getAttribute("style") == "display:block;") {
-      pullDownParents.removeAttribute("style", "display:block;")
+$(function(){
+  $('.login-name').click(function() {
+    const $openText = $(".header-content").find('.name-lists');
+    if($openText.hasClass('open')) { 
+      $openText.removeClass('open');
+      $openText.slideUp();
     } else {
-      pullDownParents.setAttribute("style", "display:block;")
+      $openText.addClass('open'); 
+      $openText.slideDown();
     };
   });
-};
-
-window.addEventListener('load', pullDown);
+});

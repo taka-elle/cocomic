@@ -3,8 +3,9 @@
   <div class="header-right">
     <p>ログインユーザー：</p>
     <%= link_to current_user.name, "#", class: "login-name",id: "user-name" %>
+    <%= image_tag "top-menu-icon.png", class:"user-menu-icon login-name", id: "user-menu-icon" %>
   </div>
-  <ul class="name-lists hidden" id="pull-down">
+  <ul class="name-lists" id="pull-down">
     <li class="pull-down-list">
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout",id: "user-logout" %>
     </li>
