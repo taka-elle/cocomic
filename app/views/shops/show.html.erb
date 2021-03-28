@@ -75,13 +75,16 @@
 <div class="shop-show-container">
   <div class="shop-show-info">
     <div class="shop-show-image">
-      <%= image_tag @shop.image, class: 'show-shop-image' if @shop.image.attached?%>
-        <% if @shop.image.blank? %>
-          <%= image_tag "cocomic-shop-demo.jpg", class: 'show-shop-image' %>
-        <%end%>
+      <% @shop.shop_datum.images.each do |image| %>
+        <%= image_tag image ,class:'show-shop-image' if @shop.image.attached?%>
+      <% end %>
+      <%#= image_tag @shop.shop_datum.images, class: 'show-shop-image' %>
+      <% if @shop.shop_datum.images.blank? %>
+        <%= image_tag "cocomic-shop-demo.jpg", class: 'show-shop-image' %>
+      <% end %>
     </div>
     <div class="shop-show-text">
-      <%= @shop.text %>
+      <%= @shop.shop_datum.text %>
     </div>
   </div>
 

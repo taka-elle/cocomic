@@ -6,6 +6,7 @@ class Shop < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :area
+  has_one :shop_datum
   has_many :shop_items
 
   with_options presence: true do

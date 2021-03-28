@@ -1,0 +1,18 @@
+<%= render "shared/second-header"%>
+<h2 class= "page-title">詳細情報</h2>
+<%= form_with model:@shop_data,url:shop_data_path,method: :post,local: true do |f| %>
+  <div class="form-wrapper">
+    <div class="field">
+      <p>お店の説明</p>
+      <%= f.text_area :text, autofocus: true,class:"input-default" %>
+    </div>
+
+    <div class="field">
+      <%= f.file_field :images, name: "images[]", multiple: true,class:"input-default" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録する",class:"signup-submit" %>
+    </div>
+  </div>
+<% end %>
