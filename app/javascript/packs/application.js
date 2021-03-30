@@ -10,6 +10,8 @@ require("channels")
 require("../menu")
 require("../accordion")
 require("../ticket")
+require("../preview")
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -18,3 +20,13 @@ require("../ticket")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+$(function() {
+  $('.shop-show-images').slick({
+      dots: true,
+  });
+
+  $('.slick-dots li').on('mouseover', function() {
+    $('.a').slick('goTo', $(this).index());
+  });
+});
