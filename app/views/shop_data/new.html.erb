@@ -3,7 +3,7 @@
 <%= form_with model:@shop_data,url:shop_data_path,method: :post,local: true do |f| %>
   <div class="new-shop-wrapper">
     <div class="new-shop-field new-shop-text">
-      <p>お店の説明</p>
+      <%= f.label :text %><br />
       <%= f.text_area :text, autofocus: true,class:"input-default" %>
     </div>
 

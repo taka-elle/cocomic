@@ -25,3 +25,5 @@ ja:
         get_day: 取りに行く日
         having_day: 借りる期間
         isbn: 本
+      shop_datum:
+        text: お店の説明
