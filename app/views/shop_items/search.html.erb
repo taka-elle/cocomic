@@ -18,14 +18,14 @@
           </div>
 
           <div class="each-contents">
-            <%= image_tag shop.image, class: 'search-shop-image' if shop.image.attached?%>
-            <% if shop.image.blank? %>
+            <%= image_tag shop.shop_datum.image1, class: 'search-shop-image' if shop.shop_datum.image1.attached?%>
+            <% if shop.shop_datum.image1.blank? %>
               <%= image_tag "cocomic-shop-demo.jpg", class: 'search-shop-image' %>
             <%end%>
 
             <div class="search-shop-text">
               <p class="search-shop-contents">説明：</p>
-              <%= shop.text%>
+              <%= shop.shop_datum.text%>
             </div>
           </div>
         </div>

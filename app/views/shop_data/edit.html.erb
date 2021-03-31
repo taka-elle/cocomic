@@ -1,0 +1,52 @@
+<%= render "shared/shop-header" %>
+<%= form_with model:@shop_data,url:shop_datum_path,method: :put,local: true do |f| %>
+  <div class="edit-form-wrapper">
+  <%= flash[:shop_data] %>
+    <h3 class= "edit-title">お店の詳細</h3>
+    <div class="field">
+      <p>お店の説明</p>
+      <%= f.text_area :text, class:"input-default", autofocus: true %>
+    </div>
+
+      <div class="new-shop-field">
+        <p>お店の雰囲気やサービスがわかる画像<br>5枚まで選択できます。</p>
+        <div class="shopimg-upload-field">
+          <div class="new-shop-image-field">
+            <%= f.label :image1 do %>
+              <%= image_tag @shop_data.image1, class:'shop-edit-image upload-image-paste1' if @shop_data.image1.attached?%>
+              <%= f.file_field :image1,class:"input-default shop-image-uploader1", style: 'display:none' %>
+            <% end %>
+          </div>
+          <div class="new-shop-image-field">
+            <%= f.label :image2 do %>
+              <%= image_tag @shop_data.image2, class:'shop-edit-image upload-image-paste2' if @shop_data.image2.attached?%>
+              <%= f.file_field :image2,class:"input-default shop-image-uploader2", style: 'display:none' %>
+            <% end %>
+          </div>
+          <div class="new-shop-image-field">
+            <%= f.label :image3 do %>
+            <%= image_tag @shop_data.image3, class:'shop-edit-image upload-image-paste3' if @shop_data.image3.attached?%>
+              <%= f.file_field :image3,class:"input-default shop-image-uploader3", style: 'display:none' %>
+            <% end %>
+          </div>
+          <div class="new-shop-image-field">
+            <%= f.label :image4 do %>
+            <%= image_tag @shop_data.image4, class:'shop-edit-image upload-image-paste4' if @shop_data.image4.attached?%>
+              <%= f.file_field :image4,class:"input-default shop-image-uploader4", style: 'display:none' %>
+            <% end %>
+          </div>
+          <div class="new-shop-image-field">
+            <%= f.label :image5 do %>
+              <%= image_tag @shop_data.image5, class:'shop-edit-image upload-image-paste5' if @shop_data.image5.attached?%>
+              <%= f.file_field :image5,class:"input-default shop-image-uploader5", style: 'display:none' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="actions">
+      <%= f.submit "更新する",class:"signup-submit" %>
+    </div>
+  </div>
+<% end %>

@@ -72,23 +72,38 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["GMAP_KEY"] %>&callback=initMap" async defer></script>
 <% if false %>google map API ここまで(コメントアウト)<% end %>
 
-<div class="shop-show-container">
-  <div class="shop-show-info">
-    <div class="shop-show-image">
-      <%= image_tag @shop.image, class: 'show-shop-image' if @shop.image.attached?%>
-        <% if @shop.image.blank? %>
-          <%= image_tag "cocomic-shop-demo.jpg", class: 'show-shop-image' %>
-        <%end%>
-    </div>
-    <div class="shop-show-text">
-      <%= @shop.text %>
-    </div>
-  </div>
-
-  <div class="shop-show-commics">
-    <% @shop_items.each do |item|%>
-      <%= render partial: "shared/show-items", locals: {item: item} %>
+<div class="shop-show-info">
+  <div class="shop-show-image">
+    <%= image_tag(@shop.shop_datum.image1,class:'show-shop-image') if @shop.shop_datum.image1.attached?%>
+    <% if @shop.shop_datum.image1.blank? %>
+      <%= image_tag "cocomic-shop-demo.jpg", class: 'show-shop-image' %>
     <% end %>
   </div>
 
+  <div class="shop-show-text">
+    <%= @shop.shop_datum.text %>
+  </div>
+</div>
+
+<% if @shop.shop_datum.image2.attached? %>
+  <div class="shop-show-images">
+    <div class="shop-show-service-image">
+      <%= image_tag(@shop.shop_datum.image2) %>
+    </div>
+    <div class="shop-show-service-image">
+      <%= image_tag(@shop.shop_datum.image3) if @shop.shop_datum.image3.attached?%>
+    </div>
+    <div class="shop-show-service-image">
+      <%= image_tag(@shop.shop_datum.image4) if @shop.shop_datum.image4.attached?%>
+    </div>
+    <div class="shop-show-service-image">
+      <%= image_tag(@shop.shop_datum.image5) if @shop.shop_datum.image5.attached?%>
+    </div>
+  </div>
+<% end %>
+
+<div class="shop-show-commics">
+  <% @shop_items.each do |item|%>
+    <%= render partial: "shared/show-items", locals: {item: item} %>
+  <% end %>
 </div>

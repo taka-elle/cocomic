@@ -6,8 +6,8 @@ class Shop < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :area
+  has_one :shop_datum
   has_many :shop_items
-  has_one_attached :image
 
   with_options presence: true do
     validates :name
@@ -17,5 +17,5 @@ class Shop < ApplicationRecord
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
 
-  
+
 end

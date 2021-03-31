@@ -4,6 +4,9 @@
   <% unless current_page?(edit_shop_registration_path)%>
     <%= link_to '基本情報', edit_shop_registration_path, class: "edit-menu" %>
   <% end %>
+  <% unless current_page?(edit_shop_datum_path(current_shop.id))%>
+    <%= link_to 'お店の詳細情報', edit_shop_datum_path(current_shop.id), class: "edit-menu shop-header-edit-test" %>
+  <% end %>
   <% unless current_page?(shop_path(current_shop.id))%>
     <%= link_to 'お店のページ', shop_path(current_shop.id), class: "edit-menu" %>
   <% end %>

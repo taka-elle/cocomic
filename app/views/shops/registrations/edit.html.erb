@@ -61,19 +61,6 @@
         <%= f.label :build %><br />
         <%= f.text_field :build, autofocus: true, autocomplete: "build",class:"input-default" %>
       </div>
-
-      <h3 class= "edit-title">PRページ</h3>
-      <div class="field">
-        <%= f.label :text %><br />
-        <%= f.text_area :text, autofocus: true, autocomplete: "text",class:"edit-text" %>
-      </div>
-      <div class="field">
-        <p>店内の写真を選択してください</p>
-        <div class="shop-image-form">
-          <%= f.file_field :image,id:"shop[image]" %>
-          <%= image_tag @shop.image.variant(resize: '200x200'), class: 'edit-shop-image' if @shop.image.attached? %>
-        </div>
-      </div>
     </div>
 
     <div class="actions">

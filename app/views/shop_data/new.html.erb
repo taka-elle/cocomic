@@ -1,0 +1,50 @@
+<%= render "shared/second-header"%>
+<h2 class= "page-title">詳細情報</h2>
+<%= form_with model:@shop_data,url:shop_data_path,method: :post,local: true do |f| %>
+  <div class="new-shop-wrapper">
+    <div class="new-shop-field new-shop-text">
+      <%= f.label :text %><br />
+      <%= f.text_area :text, autofocus: true,class:"input-default" %>
+    </div>
+
+    <div class="new-shop-field">
+    <p>お店の雰囲気やサービスがわかる画像<br>5枚まで選択できます。</p>
+      <div class="shopimg-upload-field">
+        <div class="new-shop-image-field">
+          <%= f.label :image1 do %>
+            <%= image_tag "upload.png", class:"upload-icon upload-image-paste1" %>
+            <%= f.file_field :image1,class:"input-default shop-image-uploader1", style: 'display:none' %>
+          <% end %>
+        </div>
+        <div class="new-shop-image-field">
+          <%= f.label :image2 do %>
+            <%= image_tag "upload.png", class:"upload-icon upload-image-paste2" %>
+            <%= f.file_field :image2,class:"input-default shop-image-uploader2", style: 'display:none' %>
+          <% end %>
+        </div>
+        <div class="new-shop-image-field">
+          <%= f.label :image3 do %>
+            <%= image_tag "upload.png", class:"upload-icon upload-image-paste3" %>
+            <%= f.file_field :image3,class:"input-default shop-image-uploader3", style: 'display:none' %>
+          <% end %>
+        </div>
+        <div class="new-shop-image-field">
+          <%= f.label :image4 do %>
+            <%= image_tag "upload.png", class:"upload-icon upload-image-paste4" %>
+            <%= f.file_field :image4,class:"input-default shop-image-uploader4", style: 'display:none' %>
+          <% end %>
+        </div>
+        <div class="new-shop-image-field">
+          <%= f.label :image5 do %>
+            <%= image_tag "upload.png", class:"upload-icon upload-image-paste5" %>
+            <%= f.file_field :image5,class:"input-default shop-image-uploader5", style: 'display:none' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "登録する",class:"new-shop-submit" %>
+    </div>
+  </div>
+<% end %>

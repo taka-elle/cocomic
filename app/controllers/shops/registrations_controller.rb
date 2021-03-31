@@ -58,8 +58,7 @@ class Shops::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_in_path_for(resource)
-    flash[:notice] = "ログインに成功しました" 
-    shop_path(current_shop.id) 
+    new_shop_datum_path
   end
 
   # The path used after sign up for inactive accounts.

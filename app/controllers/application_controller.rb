@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,keys: [:name,:area_id,:city,:add_line,:build,:text])
-    devise_parameter_sanitizer.permit(:account_update,keys: [:name,:area_id,:city,:add_line,:build,:text,:image])
+    devise_parameter_sanitizer.permit(:sign_up,keys: [:name,:area_id,:city,:add_line,:build])
+    devise_parameter_sanitizer.permit(:account_update,keys: [:name,:area_id,:city,:add_line,:build])
   end
 
   def shop_to_top
