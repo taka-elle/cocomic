@@ -62,6 +62,11 @@
 }
 
 
+@media screen and (max-width:1024px) {
+  .shop-show-images{
+    width: 60vw;
+  }
+}
 @media screen and (max-width:812px) {
   #map_container {
     clear: both;
@@ -79,6 +84,9 @@
   .shop-show-text{
     text-align: center;
     width: 100%;
+  }
+  .shop-show-images{
+    width: 80vw;
   }
 
 }
