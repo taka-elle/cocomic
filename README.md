@@ -8,10 +8,6 @@ cocomicでは近くの漫画本などをおいてあるお店を調べること�
 http://18.180.247.184/
 
 
-# BASIC認証
-User: taka <br>
-PW  : 0119
-
 # テスト用アカウント
 ## ショップ
 Email:    test@com<br>
